@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>课题1</title>
+<style>
+ body{margin:0;background:#0f1115;color:#eee;font-family:sans-serif;
+      display:flex;flex-direction:column;align-items:center;
+      justify-content:center;min-height:100vh}
+ h3{font-weight:500;padding:0 16px;text-align:center;font-size:16px}
+ #wrap{position:relative;max-width:94vw}
+ video{width:100%;max-height:76vh;background:#000;border-radius:8px;
+       outline:none}
+ #ov{position:absolute;inset:0;display:flex;align-items:center;
+     justify-content:center;background:rgba(0,0,0,.45);
+     border-radius:8px;cursor:pointer}
+ #ov span{font-size:20px;padding:14px 28px;border-radius:999px;
+          background:rgba(255,255,255,.92);color:#111}
+ .tip{color:#889;font-size:12px;margin-top:12px;text-align:center;
+      padding:0 12px;line-height:1.8}
+</style></head>
+<body>
+<h3 id="t">课题1</h3>
+<div id="wrap">
+<video id="v" controls playsinline webkit-playsinline
+       preload="auto"></video>
+<div id="ov"><span>▶ 点击播放</span></div>
+</div>
+<div class="tip" id="tip">视频链接加载中…</div>
+<script>
+var v=document.getElementById('v'),ov=document.getElementById('ov'),
+    tip=document.getElementById('tip');
+v.addEventListener('playing',function(){ov.style.display='none'});
+ov.addEventListener('click',function(){v.play()});
+fetch('latest.json?t='+Date.now()).then(function(r){return r.json()})
+.then(function(d){
+  v.src=d.url;
+  document.getElementById('t').textContent=d.title;
+  var mins=Math.max(0,Math.round((Date.now()/1000-d.ts)/60));
+  tip.innerHTML='链接更新于 '+mins+' 分钟前（每小时自动刷新）<br>'
+    +'如微信内无法播放，请点右上角用浏览器打开';
+  v.play().catch(function(){});
+}).catch(function(){
+  tip.textContent='加载失败，请一分钟后刷新重试';
+});
+</script>
+</body></html>
