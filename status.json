@@ -1,5 +1,12 @@
 {
  "ok": false,
- "error": "Traceback (most recent call last):\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 115, in <module>\n    result = main()\n             ^^^^^^\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 50, in main\n    view = api(\"https://api.bilibili.com/x/web-interface/view?bvid=\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 35, in api\n    raise RuntimeError(f\"{url[:70]} -> {last}\")\nRuntimeError: https://api.bilibili.com/x/web-interface/view?bvid=BV1Jkbn6KEaY -> HTTP Error 412: Precondition Failed\n",
- "ts": 1788663960
+ "count": 1,
+ "results": [
+  {
+   "bvid": "BV1sLbH6CEwY",
+   "ok": false,
+   "error": "https://api.bilibili.com/x/web-interface/view?bvid=BV1sLbH6CEwY -> HTTP Error 412: Precondition Failed"
+  }
+ ],
+ "ts": 1788665684
 }
