@@ -1,7 +1,5 @@
 {
- "ok": true,
- "via": "direct-html5",
- "url_head": "https://upos-sz-mirrorcosov.bilivideo.com/upgcxcode/97/64/41625586497/4162558649",
- "title": "一个粗瓷大碗",
- "ts": 1788663874
+ "ok": false,
+ "error": "Traceback (most recent call last):\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 115, in <module>\n    result = main()\n             ^^^^^^\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 50, in main\n    view = api(\"https://api.bilibili.com/x/web-interface/view?bvid=\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/bili-share/bili-share/refresh.py\", line 35, in api\n    raise RuntimeError(f\"{url[:70]} -> {last}\")\nRuntimeError: https://api.bilibili.com/x/web-interface/view?bvid=BV1Jkbn6KEaY -> HTTP Error 412: Precondition Failed\n",
+ "ts": 1788663960
 }
